@@ -1,13 +1,13 @@
 <?php
-namespace Digitalwerk\ContentElementRegistry\Domain\Model;
+namespace Devsk\ContentElementRegistry\Domain\Model;
 
-use Digitalwerk\ContentElementRegistry\Utility\ContentElementRegistryUtility;
+use Devsk\ContentElementRegistry\Utility\ContentElementRegistryUtility;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
 
 /**
  * Class ContentElement
- * @package Digitalwerk\CEs\Domain\Model
+ * @package Devsk\CEs\Domain\Model
  */
 class ContentElement extends AbstractEntity implements \JsonSerializable
 {

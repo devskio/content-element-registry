@@ -1,11 +1,11 @@
 <?php
-namespace Digitalwerk\ContentElementRegistry\Events;
+namespace Devsk\ContentElementRegistry\Events;
 
-use Digitalwerk\ContentElementRegistry\Core\ContentElementRegistry;
+use Devsk\ContentElementRegistry\Core\ContentElementRegistry;
 
 /**
  * Class RegisterContentElementRegistryClass
- * @package Digitalwerk\ContentElementRegistry\Event
+ * @package Devsk\ContentElementRegistry\Event
  */
 class ContentElementRegistryClassEvent
 {

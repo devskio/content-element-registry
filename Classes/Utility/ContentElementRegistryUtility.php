@@ -1,11 +1,11 @@
 <?php
-namespace Digitalwerk\ContentElementRegistry\Utility;
+namespace Devsk\ContentElementRegistry\Utility;
 
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 /**
  * Class ContentElementRegistryUtility
- * @package Digitalwerk\ContentElementRegistry\Utility
+ * @package Devsk\ContentElementRegistry\Utility
  */
 class ContentElementRegistryUtility
 {

@@ -1,10 +1,10 @@
 <?php
-namespace Digitalwerk\ContentElementRegistry\Listeners;
+namespace Devsk\ContentElementRegistry\Listeners;
 
-use Digitalwerk\ContentElementRegistry\ContentElement\AbstractContentElementRegistryItem;
-use Digitalwerk\ContentElementRegistry\Core\ContentElementRegistry;
-use Digitalwerk\ContentElementRegistry\Domain\Model\ContentElement;
-use Digitalwerk\ContentElementRegistry\Traits\Injection\InjectDataMapper;
+use Devsk\ContentElementRegistry\ContentElement\AbstractContentElementRegistryItem;
+use Devsk\ContentElementRegistry\Core\ContentElementRegistry;
+use Devsk\ContentElementRegistry\Domain\Model\ContentElement;
+use Devsk\ContentElementRegistry\Traits\Injection\InjectDataMapper;
 use TYPO3\CMS\Backend\Utility\BackendUtility;
 use TYPO3\CMS\Backend\View\Event\PageContentPreviewRenderingEvent;
 use TYPO3\CMS\Backend\View\PageLayoutContext;
@@ -15,7 +15,7 @@ use function Symfony\Component\String\u;
 
 /**
  * Class ContentElementPreviewRenderer
- * @package Digitalwerk\ContentElementRegistry\Listeners
+ * @package Devsk\ContentElementRegistry\Listeners
  */
 class ContentElementPreviewRenderer
 {
@@ -24,7 +24,7 @@ class ContentElementPreviewRenderer
     /**
      * @param PageContentPreviewRenderingEvent $event
      * @return void
-     * @throws \Digitalwerk\ContentElementRegistry\Core\ContentElementRegistryException
+     * @throws \Devsk\ContentElementRegistry\Core\ContentElementRegistryException
      * @throws \ReflectionException
      */
     public function __invoke(PageContentPreviewRenderingEvent $event): void

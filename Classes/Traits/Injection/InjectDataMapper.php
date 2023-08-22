@@ -1,11 +1,11 @@
 <?php
-namespace Digitalwerk\ContentElementRegistry\Traits\Injection;
+namespace Devsk\ContentElementRegistry\Traits\Injection;
 
 use TYPO3\CMS\Extbase\Persistence\Generic\Mapper\DataMapper;
 
 /**
  * Trait DataMapper
- * @package Digitalwerk\ContentElementRegistry\Traits\Injection
+ * @package Devsk\ContentElementRegistry\Traits\Injection
  */
 trait InjectDataMapper
 {

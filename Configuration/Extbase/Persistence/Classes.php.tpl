@@ -2,7 +2,7 @@
 declare(strict_types = 1);
 
 return [
-    \Digitalwerk\ContentElementRegistry\Domain\Model\ContentElement::class => [
+    \Devsk\ContentElementRegistry\Domain\Model\ContentElement::class => [
         'tableName' => 'tt_content',
         'properties' => [
              'CType' => [

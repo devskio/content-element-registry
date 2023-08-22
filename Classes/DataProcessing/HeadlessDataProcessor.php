@@ -1,14 +1,14 @@
 <?php
-namespace Digitalwerk\ContentElementRegistry\DataProcessing;
+namespace Devsk\ContentElementRegistry\DataProcessing;
 
-use Digitalwerk\ContentElementRegistry\Domain\Model\ContentElement;
-use Digitalwerk\ContentElementRegistry\Traits\Injection\InjectDataMapper;
+use Devsk\ContentElementRegistry\Domain\Model\ContentElement;
+use Devsk\ContentElementRegistry\Traits\Injection\InjectDataMapper;
 use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
 use TYPO3\CMS\Frontend\ContentObject\DataProcessorInterface;
 
 /**
  * Class ContentElementObjectDataProcessor
- * @package Digitalwerk\ContentElementRegistry\DataProcessing
+ * @package Devsk\ContentElementRegistry\DataProcessing
  */
 class HeadlessDataProcessor implements DataProcessorInterface
 {

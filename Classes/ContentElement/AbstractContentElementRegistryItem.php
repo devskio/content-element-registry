@@ -1,15 +1,15 @@
 <?php
-namespace Digitalwerk\ContentElementRegistry\ContentElement;
+namespace Devsk\ContentElementRegistry\ContentElement;
 
-use Digitalwerk\ContentElementRegistry\Core\ContentElementRegistry;
-use Digitalwerk\ContentElementRegistry\DataProcessing\ContentElementObjectDataProcessor;
-use Digitalwerk\ContentElementRegistry\DataProcessing\HeadlessDataProcessor;
-use Digitalwerk\ContentElementRegistry\Utility\ContentElementRegistryUtility;
+use Devsk\ContentElementRegistry\Core\ContentElementRegistry;
+use Devsk\ContentElementRegistry\DataProcessing\ContentElementObjectDataProcessor;
+use Devsk\ContentElementRegistry\DataProcessing\HeadlessDataProcessor;
+use Devsk\ContentElementRegistry\Utility\ContentElementRegistryUtility;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 /**
  * Class AbstractContentElementRegistryItem
- * @package Digitalwerk\ContentElementRegistry\ContentElement
+ * @package Devsk\ContentElementRegistry\ContentElement
  */
 abstract class AbstractContentElementRegistryItem
 {

@@ -5,11 +5,11 @@ services:
     autoconfigure: true
     public: true
 
-  Digitalwerk\ContentElementRegistry\:
+  Devsk\ContentElementRegistry\:
     resource: '../Classes/*'
     exclude: '../Classes/Domain/Model/*'
 
-  Digitalwerk\ContentElementRegistry\Listeners\ContentElementPreviewRenderer:
+  Devsk\ContentElementRegistry\Listeners\ContentElementPreviewRenderer:
     tags:
       - name: event.listener
         identifier: 'contentElementPreviewRenderer'

@@ -1,6 +1,6 @@
 <?php
 
-use Digitalwerk\ContentElementRegistry\Core\ContentElementRegistry;
+use Devsk\ContentElementRegistry\Core\ContentElementRegistry;
 use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 
 defined('TYPO3') or die();
