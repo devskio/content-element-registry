@@ -14,7 +14,12 @@
 	"extra": {
 		"typo3/cms": {
 			"extension-key": "content_element_registry"
-		}
+		},
+    "typo3/class-alias-loader": {
+      "class-alias-maps": [
+        "Migrations/Code/ClassAliasMap.php"
+      ]
+    }
 	},
 	"replace": {
 		"devsk/content_element_registry": "self.version",
