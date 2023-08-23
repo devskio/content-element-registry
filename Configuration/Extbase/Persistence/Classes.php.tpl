@@ -16,7 +16,7 @@ return [
              ],
         ],
         'subclasses' => [
-            \DevSK\DsBoilerplate\Domain\Model\ContentElement\RegularTextElement::class => \DevSK\DsBoilerplate\Domain\Model\ContentElement\RegularTextElement::class,
+            \Devsk\DsBoilerplate\Domain\Model\ContentElement\RegularTextElement::class => \Devsk\DsBoilerplate\Domain\Model\ContentElement\RegularTextElement::class,
         ]
     ],
 ];
