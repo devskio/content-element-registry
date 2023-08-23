@@ -1,12 +1,12 @@
 <?php
-namespace Digitalwerk\ContentElementRegistry\Domain\Model;
+namespace Devsk\ContentElementRegistry\Domain\Model;
 
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
 /**
  * Class Relation
- * @package Digitalwerk\ContentElementRegistry\Domain\Model
+ * @package Devsk\ContentElementRegistry\Domain\Model
  */
 abstract class Relation extends AbstractEntity
 {
@@ -31,7 +31,7 @@ abstract class Relation extends AbstractEntity
     protected $media = null;
 
     /**
-     * @var \Digitalwerk\ContentElementRegistry\Domain\Model\ContentElement
+     * @var \Devsk\ContentElementRegistry\Domain\Model\ContentElement
      */
     protected $contentElement = null;
 

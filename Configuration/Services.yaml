@@ -5,6 +5,6 @@ services:
     autoconfigure: true
     public: true
 
-  Digitalwerk\ContentElementRegistry\:
+  Devsk\ContentElementRegistry\:
     resource: '../Classes/*'
     exclude: '../Classes/Domain/Model/*'

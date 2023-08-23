@@ -1,10 +1,10 @@
 <?php
-namespace Digitalwerk\ContentElementRegistry\Hook;
+namespace Devsk\ContentElementRegistry\Hook;
 
-use Digitalwerk\ContentElementRegistry\ContentElement\AbstractContentElementRegistryItem;
-use Digitalwerk\ContentElementRegistry\Core\ContentElementRegistry;
-use Digitalwerk\ContentElementRegistry\Domain\Model\ContentElement;
-use Digitalwerk\ContentElementRegistry\Traits\Injection\InjectDataMapper;
+use Devsk\ContentElementRegistry\ContentElement\AbstractContentElementRegistryItem;
+use Devsk\ContentElementRegistry\Core\ContentElementRegistry;
+use Devsk\ContentElementRegistry\Domain\Model\ContentElement;
+use Devsk\ContentElementRegistry\Traits\Injection\InjectDataMapper;
 use TYPO3\CMS\Backend\Utility\BackendUtility;
 use TYPO3\CMS\Backend\View\PageLayoutView;
 use TYPO3\CMS\Backend\View\PageLayoutViewDrawItemHookInterface;
@@ -14,7 +14,7 @@ use function Symfony\Component\String\u;
 
 /**
  * Class ContentElementPreviewRenderer
- * @package Digitalwerk\ContentElementRegistry\Hook
+ * @package Devsk\ContentElementRegistry\Hook
  */
 class ContentElementPreviewRenderer implements PageLayoutViewDrawItemHookInterface
 {

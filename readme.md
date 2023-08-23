@@ -1,12 +1,12 @@
 
 
 
-# <img src="https://github.com/ogrosko/content-element-registry/raw/master/Resources/Public/Icons/Extension.svg?sanitize=true" width="40" height="40"/> Content element registry
+# <img src="https://github.com/devskio/content-element-registry/raw/master/Resources/Public/Icons/Extension.svg?sanitize=true" width="40" height="40"/> Content element registry
 Typo3 extension simplify process of creating new content elements (CE) in [Typo3 way](https://docs.typo3.org/typo3cms/extensions/fluid_styled_content/7.6/AddingYourOwnContentElements/Index.html)
 
 
 ## Install
-Install extension via composer `composer req digitalwerk/content-element-registry` and activate it in Extension module
+Install extension via composer `composer req devsk/content-element-registry` and activate it in Extension module
 
 
 ## Setup
@@ -24,7 +24,7 @@ It can be done in two ways:
     tags:
       - name: event.listener
         identifier: 'contentElementRegistryListener'
-        event: Digitalwerk\ContentElementRegistry\Events\ContentElementRegistryClassEvent
+        event: Devsk\ContentElementRegistry\Events\ContentElementRegistryClassEvent
 
 ```
 
@@ -58,12 +58,12 @@ class ContentElementRegistryListener
 
 
 ## Creating new content element
-To create new Content element you have to create new *Class* inside your folder defined in [Setup section](#setup) which extends `Digitalwerk\ContentElementRegistry\ContentElement\AbstractContentElementRegistryItem`
+To create new Content element you have to create new *Class* inside your folder defined in [Setup section](#setup) which extends `Devsk\ContentElementRegistry\ContentElement\AbstractContentElementRegistryItem`
 ```php
 <?php
 namespace \YourVendor\YourExtension\ContentElement;
 
-use Digitalwerk\ContentElementRegistry\ContentElement\AbstractContentElementRegistryItem;
+use Devsk\ContentElementRegistry\ContentElement\AbstractContentElementRegistryItem;
 
 class YourNewContentElement extends AbstractContentElementRegistryItem
 {
@@ -97,7 +97,7 @@ To add new fields you have to define it in `\YourVendor\YourExtension\ContentEle
 <?php
 namespace \YourVendor\YourExtension\ContentElement;
 
-use Digitalwerk\ContentElementRegistry\ContentElement\AbstractContentElementRegistryItem;
+use Devsk\ContentElementRegistry\ContentElement\AbstractContentElementRegistryItem;
 
 class YourNewContentElement extends AbstractContentElementRegistryItem
 {
@@ -204,7 +204,7 @@ looks like this:
 declare(strict_types=1);
 namespace \YourVendor\YourExtension\Domain\Model\ContentElement;
 
-use DigitalWerk\ContentElementRegistry\Domain\Model\ContentElement;
+use Devsk\ContentElementRegistry\Domain\Model\ContentElement;
 
 /**
  * Class YourNewContentElement
@@ -216,7 +216,7 @@ class YourNewContentElement extends ContentElement
 }
 ```
 Into class you can write some `functions, getters, setters, etc`. Some of them are inherited from
-`DigitalWerk\ContentElementRegistry\Domain\Model\ContentElement` (take a look ;).
+`Devsk\ContentElementRegistry\Domain\Model\ContentElement` (take a look ;).
 
 ##### Model in template
 Model is accessible in the template of element with variable name `{contentElement}`. To find out what data is loaded in the model in the template use:
@@ -345,7 +345,7 @@ class YourNewContentElement extends AbstractContentElementRegistryItem
 <?php
 namespace \YourVendor\YourExtension\Domain\Model\ContentElement;
 
-use DigitalWerk\ContentElementRegistry\Domain\Model\ContentElement;
+use Devsk\ContentElementRegistry\Domain\Model\ContentElement;
 
 /**
  * Class YourNewContentElement
@@ -375,7 +375,7 @@ Here you can write getters and properties for fields in TCA of Relation:
 <?php
 namespace \YourVendor\YourExtension\Domain\Model\ContentElement\YourNewContentElement;
 
-use Digitalwerk\ContentElementRegistry\Domain\Model\Relation;
+use Devsk\ContentElementRegistry\Domain\Model\Relation;
 
 /**
  * Class YourNewRelation
@@ -405,7 +405,7 @@ but after mapping `'tx_contentelementregistry_relations' => 'relations'`,`tx_con
  ```php
 namespace \YourVendor\YourExtension\Domain\Model\ContentElement;
 
-use DigitalWerk\ContentElementRegistry\Domain\Model\ContentElement;
+use Devsk\ContentElementRegistry\Domain\Model\ContentElement;
 
 /**
  * Class YourNewContentElement
@@ -423,6 +423,10 @@ class YourNewContentElement extends ContentElement
 }
 ```
 ##Changelog
+
+### v11.6.0
+- Major: Namespace migration from `Digitalwerk\ContentElementRegistry\...` to `Devsk\ContentElementRegistry\...`
+
 
 ### v1.0.0
 

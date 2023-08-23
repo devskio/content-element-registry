@@ -1,9 +1,9 @@
 <?php
-namespace Digitalwerk\ContentElementRegistry\Core;
+namespace Devsk\ContentElementRegistry\Core;
 
 /**
  * Class ContentElementRegistryException
- * @package Digitalwerk\ContentElementRegistry\Core
+ * @package Devsk\ContentElementRegistry\Core
  */
 class ContentElementRegistryException extends \Exception
 {

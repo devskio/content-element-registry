@@ -1,11 +1,11 @@
 <?php
-namespace Digitalwerk\ContentElementRegistry\Core;
+namespace Devsk\ContentElementRegistry\Core;
 
 use Composer\Autoload\ClassMapGenerator;
-use Digitalwerk\ContentElementRegistry\ContentElement\AbstractContentElementRegistryItem;
-use Digitalwerk\ContentElementRegistry\Domain\Model\ContentElement;
-use Digitalwerk\ContentElementRegistry\Events\ContentElementRegistryClassEvent;
-use Digitalwerk\ContentElementRegistry\Utility\ContentElementRegistryUtility;
+use Devsk\ContentElementRegistry\ContentElement\AbstractContentElementRegistryItem;
+use Devsk\ContentElementRegistry\Domain\Model\ContentElement;
+use Devsk\ContentElementRegistry\Events\ContentElementRegistryClassEvent;
+use Devsk\ContentElementRegistry\Utility\ContentElementRegistryUtility;
 use Psr\EventDispatcher\EventDispatcherInterface;
 use TYPO3\CMS\Core\Configuration\ExtensionConfiguration;
 use TYPO3\CMS\Core\SingletonInterface;
@@ -15,7 +15,7 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 /**
  * Class ContentElementRegistry
- * @package Digitalwerk\ContentElementRegistry\Core
+ * @package Devsk\ContentElementRegistry\Core
  */
 class ContentElementRegistry implements SingletonInterface
 {

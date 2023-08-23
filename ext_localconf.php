@@ -1,8 +1,8 @@
 <?php
 
-use Digitalwerk\ContentElementRegistry\Core\ContentElementRegistry;
-use Digitalwerk\ContentElementRegistry\Hook\ContentElementPreviewRenderer;
-use Digitalwerk\ContentElementRegistry\Utility\ContentElementRegistryUtility;
+use Devsk\ContentElementRegistry\Core\ContentElementRegistry;
+use Devsk\ContentElementRegistry\Hook\ContentElementPreviewRenderer;
+use Devsk\ContentElementRegistry\Utility\ContentElementRegistryUtility;
 use TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider;
 use TYPO3\CMS\Core\Imaging\IconRegistry;
 use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;

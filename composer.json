@@ -1,15 +1,14 @@
 {
-	"name": "digitalwerk/content-element-registry",
+	"name": "devskio/content-element-registry",
 	"type": "typo3-cms-extension",
 	"description": "Content element registry helper for registering Typo3 content elements",
-	"version": "11.5.3",
 	"license": "GPL-2.0-or-later",
 	"require": {
 		"typo3/cms-core": ">=11 <12"
 	},
 	"autoload": {
 		"psr-4": {
-			"Digitalwerk\\ContentElementRegistry\\": "Classes"
+			"Devsk\\ContentElementRegistry\\": "Classes"
 		}
 	},
 	"extra": {
@@ -18,14 +17,17 @@
 		}
 	},
 	"replace": {
-		"digitalwerk/content_element_registry": "self.version",
+		"devsk/content_element_registry": "self.version",
 		"typo3-ter/content-element-registry": "self.version"
 	},
 	"authors": [
 		{
-			"name": "Ondrej Grosko",
-			"email": "ondrej@digitalwerk.agency",
-			"homepage": "https://digitalwerk.agency/"
+      "name": "DEVSK Team",
+      "email": "development@devsk.io",
+      "homepage": "https://www.devsk.io/"
 		}
-	]
+	],
+  "conflict": {
+    "digitalwerk/content-element-registry": "*"
+  }
 }
