@@ -234,7 +234,7 @@ class ContentElement extends AbstractEntity implements \JsonSerializable
      * @return array|mixed
      * @throws \ReflectionException
      */
-    public function jsonSerialize($data = [])
+    public function jsonSerialize($data = []): mixed
     {
         return array_merge([
             'CType' => $this->getCType(),
