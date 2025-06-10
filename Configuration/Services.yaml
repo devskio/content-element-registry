@@ -14,3 +14,4 @@ services:
       - name: event.listener
         identifier: 'contentElementPreviewRenderer'
         event: TYPO3\CMS\Backend\View\Event\PageContentPreviewRenderingEvent
+

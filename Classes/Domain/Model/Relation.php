@@ -1,6 +1,8 @@
 <?php
+
 namespace Devsk\ContentElementRegistry\Domain\Model;
 
+use TYPO3\CMS\Extbase\Domain\Model\FileReference;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
@@ -13,27 +15,27 @@ abstract class Relation extends AbstractEntity
     /**
      * @var string
      */
-    protected $type = '';
+    protected string $type = '';
 
     /**
      * @var string
      */
-    protected $title = '';
+    protected string $title = '';
 
     /**
      * @var string
      */
-    protected $description = '';
+    protected string $description = '';
 
     /**
-     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\FileReference>
+     * @var ObjectStorage<FileReference>|null
      */
-    protected $media = null;
+    protected ?ObjectStorage $media = null;
 
     /**
-     * @var \Devsk\ContentElementRegistry\Domain\Model\ContentElement
+     * @var ContentElement|null
      */
-    protected $contentElement = null;
+    protected ?ContentElement $contentElement = null;
 
     /**
      * Relation constructor.

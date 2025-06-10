@@ -1,7 +1,6 @@
 <?php
 
 use Devsk\ContentElementRegistry\Core\ContentElementRegistry;
-use Devsk\ContentElementRegistry\Hook\ContentElementPreviewRenderer;
 use Devsk\ContentElementRegistry\Utility\ContentElementRegistryUtility;
 use TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider;
 use TYPO3\CMS\Core\Imaging\IconRegistry;
@@ -13,11 +12,10 @@ defined('TYPO3') or die();
 call_user_func(
     function ($extKey) {
 
-        $iconRegistry = $iconRegistry = GeneralUtility::makeInstance(
+        $iconRegistry = GeneralUtility::makeInstance(
             IconRegistry::class
         );
         $contentElementsRegistry = ContentElementRegistry::getInstance();
-
 
         foreach ($contentElementsRegistry->getContentElements() as $contentElement) {
             //Register CE icon
@@ -27,14 +25,6 @@ call_user_func(
                 [
                     'source' => $contentElement->getIconSrcPath(),
                 ]
-            );
-
-            //Register CE wizard item
-            ExtensionManagementUtility::addPageTSConfig(
-                ContentElementRegistryUtility::convertArrayToTypoScript(
-                    $contentElement->getWizardPageTSconfig(),
-                    'mod.wizards.newContentElement.wizardItems'
-                )
             );
 
             //Register CE rendering definition

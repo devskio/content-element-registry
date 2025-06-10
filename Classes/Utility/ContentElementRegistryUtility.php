@@ -1,7 +1,12 @@
 <?php
+
 namespace Devsk\ContentElementRegistry\Utility;
 
+use TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider;
+use TYPO3\CMS\Core\Imaging\IconRegistry;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
+
+use function array_key_exists;
 
 /**
  * Class ContentElementRegistryUtility
@@ -9,7 +14,6 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
  */
 class ContentElementRegistryUtility
 {
-
     /**
      * Converts given array to TypoScript
      *
@@ -20,10 +24,10 @@ class ContentElementRegistryUtility
      * @return string TypoScript
      */
     public static function convertArrayToTypoScript(
-        array $typoScriptArray,
-        $addKey = '',
-        $tab = 0,
-        $init = true
+        array  $typoScriptArray,
+        string $addKey = '',
+        int    $tab = 0,
+        bool $init = true
     ): string {
         $typoScript = '';
         if ($addKey !== '') {
@@ -35,10 +39,9 @@ class ContentElementRegistryUtility
         $tab++;
         foreach ($typoScriptArray as $key => $value) {
             if (!is_array($value)) {
-                //                TODO: replace with str_starts_with() in PHP 8
                 if (str_starts_with($value, ":=") === true) {
                     $typoScript .= str_repeat("\t", ($tab === 0) ? $tab : $tab - 1) . "$key $value\n";
-                } elseif (strpos($value, "\n") === false) {
+                } elseif (!str_contains($value, "\n")) {
                     $typoScript .= str_repeat("\t", ($tab === 0) ? $tab : $tab - 1) . "$key = $value\n";
                 } else {
                     $typoScript .= str_repeat("\t", ($tab === 0) ? $tab : $tab - 1) . "$key (\n$value\n" .
@@ -74,7 +77,7 @@ class ContentElementRegistryUtility
             'modelName'     => $modelName,
         ];
 
-        if (null !== $key and \array_key_exists($key, $data)) {
+        if (null !== $key && array_key_exists($key, $data)) {
             return $data[$key];
         }
 
@@ -100,13 +103,13 @@ class ContentElementRegistryUtility
      */
     public static function registerIcons(array $icons, string $extKey): void
     {
-        $iconRegistry = GeneralUtility::makeInstance(\TYPO3\CMS\Core\Imaging\IconRegistry::class);
+        $iconRegistry = GeneralUtility::makeInstance(IconRegistry::class);
         foreach ($icons as $icon) {
             $iconName = stripos($icon, '/') === false ? $icon : end(explode('/', $icon));
             $iconRegistry->registerIcon(
                 $iconName,
-                \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
-                ['source' => "EXT:{$extKey}/Resources/Public/Icons/{$icon}.svg"]
+                SvgIconProvider::class,
+                ['source' => "EXT:$extKey/Resources/Public/Icons/$icon.svg"]
             );
         }
     }

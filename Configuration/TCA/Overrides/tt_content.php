@@ -1,6 +1,7 @@
 <?php
 
 use Devsk\ContentElementRegistry\Core\ContentElementRegistry;
+use TYPO3\CMS\Core\Schema\Struct\SelectItem;
 use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 
 defined('TYPO3') or die();
@@ -53,8 +54,20 @@ foreach ($contentElementsRegistry->getContentElements() as $contentElement) {
         'showitem' => $contentElement->getTCAShowItemConfig(),
         'columnsOverrides' => $contentElement->getColumnsOverrides(),
     ];
-}
 
+    ExtensionManagementUtility::addPlugin(
+        new SelectItem(
+            type: 'select',
+            label: $contentElement->getTitle(),
+            value: $contentElement->getCType(),
+            icon: $contentElement->getIconIdentifier(),
+            group: $contentElement->getGroupName() === 'common' ? 'default' : $contentElement->getGroupName(),
+            description: $contentElement->getDescription(),
+        ),
+        'CType',
+        $contentElement->getExtensionKey()
+    );
+}
 
 $tmpColumns = [
     'tx_contentelementregistry_relations' => [

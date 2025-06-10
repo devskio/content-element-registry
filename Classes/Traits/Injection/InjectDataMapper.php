@@ -1,4 +1,5 @@
 <?php
+
 namespace Devsk\ContentElementRegistry\Traits\Injection;
 
 use TYPO3\CMS\Extbase\Persistence\Generic\Mapper\DataMapper;
@@ -18,7 +19,7 @@ trait InjectDataMapper
      * @param DataMapper $dataMapper
      * @return void
      */
-    public function injectDataMapper(DataMapper $dataMapper)
+    public function injectDataMapper(DataMapper $dataMapper): void
     {
         $this->dataMapper = $dataMapper;
     }

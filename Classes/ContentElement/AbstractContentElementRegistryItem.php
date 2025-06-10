@@ -1,4 +1,5 @@
 <?php
+
 namespace Devsk\ContentElementRegistry\ContentElement;
 
 use Devsk\ContentElementRegistry\Core\ContentElementRegistry;
@@ -18,34 +19,34 @@ abstract class AbstractContentElementRegistryItem
      *
      * @var array
      */
-    private $palettes = [];
+    private array $palettes = [];
 
     /**
      * Table columns mappings to Model properties
      *
      * @var array
      */
-    protected $columnsMapping = [];
+    protected array $columnsMapping = [];
 
     /**
-     * Get CE wizard tab name [common, menu, special, forms, plugins]
+     * Get CE wizard tab name [default, menu, special, forms, plugins]
      * Specify in which wizard tab should be element placed
      *
      * @var string
      */
-    protected $wizardTabName = 'common';
+    protected string $wizardTabName = 'default';
 
     /**
      * Should be element hidden in wizard
      *
      * @var bool
      */
-    protected $hiddenInWizard = false;
+    protected bool $hiddenInWizard = false;
 
     /**
      * @var bool
      */
-    protected $isHeadless = false;
+    protected bool $isHeadless = false;
 
     /**
      * AbstractContentElementRegistryItem constructor.
@@ -207,36 +208,6 @@ abstract class AbstractContentElementRegistryItem
     public function getGroupLabel(): string
     {
         return $this->getWizardTabHeader();
-    }
-
-    /**
-     * Get CE PageTSconfig
-     *
-     * @return array
-     * @throws \ReflectionException
-     */
-    public function getWizardPageTSconfig(): array
-    {
-        $config = [];
-
-        if (false === $this->hiddenInWizard) {
-            $config[$this->wizardTabName] = [
-                'elements' => [
-                    $this->getCType() => [
-                        'iconIdentifier' => $this->getIconIdentifier(),
-                        'title' => $this->getTitle(),
-                        'description' => $this->getDescription(),
-                        'tt_content_defValues' => [
-                            'CType' => $this->getCType(),
-                        ],
-                    ],
-                ],
-                'show' => ":= addToList({$this->getCType()})",
-                'header' => $this->getWizardTabHeader(),
-            ];
-        }
-
-        return $config;
     }
 
     /**
@@ -425,7 +396,7 @@ abstract class AbstractContentElementRegistryItem
     /**
      * @param bool $isHeadless
      */
-    public function setIsHeadless(bool $isHeadless)
+    public function setIsHeadless(bool $isHeadless): void
     {
         $this->isHeadless = $isHeadless;
     }

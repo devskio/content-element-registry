@@ -1,4 +1,5 @@
 <?php
+
 namespace Devsk\ContentElementRegistry\DataProcessing;
 
 use Devsk\ContentElementRegistry\Domain\Model\ContentElement;
@@ -33,6 +34,7 @@ class HeadlessDataProcessor implements DataProcessorInterface
         /** @var ContentElement $contentElement */
         $contentElement = $this->dataMapper->map(
             ContentElement::class,
+            // @extensionScannerIgnoreLine
             [$cObj->data]
         )[0];
 

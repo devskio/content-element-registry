@@ -1,4 +1,5 @@
 <?php
+
 namespace Devsk\ContentElementRegistry\Events;
 
 use Devsk\ContentElementRegistry\Core\ContentElementRegistry;
@@ -10,9 +11,9 @@ use Devsk\ContentElementRegistry\Core\ContentElementRegistry;
 class ContentElementRegistryClassEvent
 {
     /**
-     * @var ContentElementRegistry
+     * @var ContentElementRegistry|null
      */
-    protected $contentElementRegistry = null;
+    protected ?ContentElementRegistry $contentElementRegistry = null;
 
     /**
      * RegisterContentElementRegistryClass constructor.
@@ -38,6 +39,4 @@ class ContentElementRegistryClassEvent
     {
         $this->contentElementRegistry = $contentElementRegistry;
     }
-
-
 }

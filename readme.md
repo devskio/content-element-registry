@@ -43,9 +43,8 @@ class ContentElementRegistryListener
     public function __invoke(RegisterContentElementRegistryClassEvent $event): void
     {
         $contentElementRegistry = $event->getContentElementRegistry();
-        $contentElementsClassMap = \Composer\Autoload\ClassMapGenerator::createMap(
-            \TYPO3\CMS\Core\Core\Environment::getPublicPath() .
-            '/typo3conf/ext/your_extension/Classes/ContentElement/'
+        $contentElementsClassMap = \Composer\ClassMapGenerator\ClassMapGenerator::createMap(
+            \TYPO3\CMS\Core\Utility\GeneralUtility::getFileAbsFileName("EXT:your_extension/Classes/ContentElement/")
         );
         foreach ($contentElementsClassMap as $elementClass => $elementClassPath) {
             $contentElementRegistry->registerContentElement(

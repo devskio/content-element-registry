@@ -1,7 +1,8 @@
 <?php
+
 namespace Devsk\ContentElementRegistry\Core;
 
-use Composer\Autoload\ClassMapGenerator;
+use Composer\ClassMapGenerator\ClassMapGenerator;
 use Devsk\ContentElementRegistry\ContentElement\AbstractContentElementRegistryItem;
 use Devsk\ContentElementRegistry\Domain\Model\ContentElement;
 use Devsk\ContentElementRegistry\Events\ContentElementRegistryClassEvent;
@@ -19,25 +20,24 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
  */
 class ContentElementRegistry implements SingletonInterface
 {
-
     /**
      * Extension key
      */
-    const EXTENSION_KEY = 'content_element_registry';
+    public const string EXTENSION_KEY = 'content_element_registry';
 
     /**
      * CEs (Content elements) register
      *
      * @var array
      */
-    protected $contentElements = [];
+    protected array $contentElements = [];
 
     /**
      * Base columns mapping common for all CEs
      *
      * @var array
      */
-    protected $columnsMapping = [
+    protected array $columnsMapping = [
         'CType' => 'CType',
         'sectionIndex' => 'sectionIndex',
         'header' => 'header',
@@ -62,17 +62,16 @@ class ContentElementRegistry implements SingletonInterface
      *
      * @throws ContentElementRegistryException
      */
-    private function registerContentElements()
+    private function registerContentElements(): void
     {
         $contentElementsPaths = $this->getExtConf('contentElementsPaths');
         if ($contentElementsPaths) {
             $contentElementsPaths = GeneralUtility::trimExplode(',', $contentElementsPaths);
             foreach ($contentElementsPaths as $contentElementsPath) {
-                //                TODO: replace with str_starts_with() in PHP 8
                 if (str_starts_with($contentElementsPath, 'EXT:')) {
                     $contentElementsPath = GeneralUtility::getFileAbsFileName($contentElementsPath);
                 }
-                if (\file_exists($contentElementsPath) and \is_dir($contentElementsPath)) {
+                if (\file_exists($contentElementsPath) && \is_dir($contentElementsPath)) {
                     $contentElementsClasses = ClassMapGenerator::createMap($contentElementsPath);
                     foreach ($contentElementsClasses as $contentElementClass => $contentElementClassPath) {
                         $reflection = new \ReflectionClass($contentElementClass);
@@ -90,7 +89,7 @@ class ContentElementRegistry implements SingletonInterface
     /**
      * Emit registerContentElementRegistryClass signal
      */
-    private function emitRegisterContentElementRegistryClass()
+    private function emitRegisterContentElementRegistryClass(): void
     {
         /** @var EventDispatcherInterface $dispatcher */
         $dispatcher = GeneralUtility::getContainer()->get(EventDispatcherInterface::class);
@@ -111,7 +110,7 @@ class ContentElementRegistry implements SingletonInterface
      * @param AbstractContentElementRegistryItem $element
      * @throws ContentElementRegistryException|\ReflectionException
      */
-    public function registerContentElement(AbstractContentElementRegistryItem $element)
+    public function registerContentElement(AbstractContentElementRegistryItem $element): void
     {
         if ($this->existsContentElement($element->getIdentifier())) {
             throw new ContentElementRegistryException("Content Element '{$element->getIdentifier()}' already registered", 1540825475);
@@ -135,7 +134,7 @@ class ContentElementRegistry implements SingletonInterface
      * @return void
      * @throws \ReflectionException
      */
-    private function sortContentElements()
+    private function sortContentElements(): void
     {
         \uasort(
             $this->contentElements,
@@ -206,7 +205,7 @@ class ContentElementRegistry implements SingletonInterface
     {
         $extConf = GeneralUtility::makeInstance(ExtensionConfiguration::class)->get(self::EXTENSION_KEY);
 
-        if (null !== $configurationKey and isset($extConf[$configurationKey])) {
+        if (null !== $configurationKey && isset($extConf[$configurationKey])) {
             return $extConf[$configurationKey];
         }
 

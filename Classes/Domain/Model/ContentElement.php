@@ -1,4 +1,5 @@
 <?php
+
 namespace Devsk\ContentElementRegistry\Domain\Model;
 
 use Devsk\ContentElementRegistry\Utility\ContentElementRegistryUtility;
@@ -14,67 +15,67 @@ class ContentElement extends AbstractEntity implements \JsonSerializable
     /**
      * @var string
      */
-    protected $CType = '';
+    protected string $CType = '';
 
     /**
      * @var bool
      */
-    protected $sectionIndex = true;
+    protected bool $sectionIndex = true;
 
     /**
      * @var string
      */
-    protected $layout = 'Default';
+    protected string $layout = 'Default';
 
     /**
      * @var string
      */
-    protected $header = '';
+    protected string $header = '';
 
     /**
      * @var int
      */
-    protected $headerLayout = 0;
+    protected int $headerLayout = 0;
 
     /**
      * @var string
      */
-    protected $headerPosition = '';
+    protected string $headerPosition = '';
 
     /**
      * @var string
      */
-    protected $headerLink = '';
+    protected string $headerLink = '';
 
     /**
      * @var string
      */
-    protected $subheader = '';
+    protected string $subheader = '';
 
     /**
      * @var string
      */
-    protected $cssClass = '';
+    protected string $cssClass = '';
 
     /**
      * @var string
      */
-    protected $cssClassPrefix = 'ce-';
+    protected string $cssClassPrefix = 'ce-';
 
     /**
      * @var array
      */
-    protected $cssClassModifiers = [];
+    protected array $cssClassModifiers = [];
 
     /**
-     * @var ContentObjectRenderer
+     * @var ContentObjectRenderer|null
      */
-    protected $cObj = null;
+    protected ?ContentObjectRenderer $cObj = null;
 
     /**
      * @var array
      */
-    protected $contentObjectConfiguration = [];
+    protected array $contentObjectConfiguration = [];
 
     /**
      * Get Model name
@@ -200,7 +201,7 @@ class ContentElement extends AbstractEntity implements \JsonSerializable
     /**
      * @return ContentObjectRenderer
      */
-    public function getCObj(): ? ContentObjectRenderer
+    public function getCObj(): ?ContentObjectRenderer
     {
         return $this->cObj;
     }
@@ -208,7 +209,7 @@ class ContentElement extends AbstractEntity implements \JsonSerializable
     /**
      * @param ContentObjectRenderer $cObj
      */
-    public function setCObj(ContentObjectRenderer $cObj)
+    public function setCObj(ContentObjectRenderer $cObj): void
     {
         $this->cObj = $cObj;
     }
@@ -224,7 +225,7 @@ class ContentElement extends AbstractEntity implements \JsonSerializable
     /**
      * @param array $contentObjectConfiguration
      */
-    public function setContentObjectConfiguration(array $contentObjectConfiguration)
+    public function setContentObjectConfiguration(array $contentObjectConfiguration): void
     {
         $this->contentObjectConfiguration = $contentObjectConfiguration;
     }
@@ -234,7 +235,7 @@ class ContentElement extends AbstractEntity implements \JsonSerializable
      * @return array|mixed
      * @throws \ReflectionException
      */
-    public function jsonSerialize($data = []): mixed
+    public function jsonSerialize(array $data = []): mixed
     {
         return array_merge([
             'CType' => $this->getCType(),
