@@ -43,17 +43,17 @@ foreach ($contentElementsRegistry->getContentElements() as $contentElement) {
         $GLOBALS['TCA']['tt_content']['palettes'][$paletteName] = $palette;
     }
 
-    // Add CE FlexForm
-    if ($contentElement->flexFormDefinitionExists()) {
-        $GLOBALS['TCA']['tt_content']['columns']['pi_flexform']['config']['ds']["*,{$contentElement->getIdentifier()}"] =
-            $contentElement->getFlexFormFormDefinition();
-    }
-
     //Add CE type
     $GLOBALS['TCA']['tt_content']['types'][$contentElement->getCType()] = [
         'showitem' => $contentElement->getTCAShowItemConfig(),
         'columnsOverrides' => $contentElement->getColumnsOverrides(),
     ];
+
+    // Add CE FlexForm (TYPO3 14: data structure is assigned per record type, "*,identifier" pointer keys are gone)
+    if ($contentElement->flexFormDefinitionExists()) {
+        $GLOBALS['TCA']['tt_content']['types'][$contentElement->getCType()]['columnsOverrides']['pi_flexform']['config']['ds']
+            = $contentElement->getFlexFormFormDefinition();
+    }
 
     ExtensionManagementUtility::addPlugin(
         new SelectItem(

@@ -3,7 +3,6 @@
 namespace Devsk\ContentElementRegistry\Utility;
 
 use TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider;
-use TYPO3\CMS\Core\Imaging\IconRegistry;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 use function array_key_exists;
@@ -96,21 +95,21 @@ class ContentElementRegistryUtility
     }
 
     /**
-     * SVG icon registration helper
+     * SVG icon definitions helper for Configuration/Icons.php
      *
      * @param array $icons
      * @param string $extKey
+     * @return array<string, array{provider: class-string, source: string}>
      */
-    public static function registerIcons(array $icons, string $extKey): void
+    public static function getIconDefinitions(array $icons, string $extKey): array
     {
-        $iconRegistry = GeneralUtility::makeInstance(IconRegistry::class);
+        $definitions = [];
         foreach ($icons as $icon) {
-            $iconName = stripos($icon, '/') === false ? $icon : end(explode('/', $icon));
-            $iconRegistry->registerIcon(
-                $iconName,
-                SvgIconProvider::class,
-                ['source' => "EXT:$extKey/Resources/Public/Icons/$icon.svg"]
-            );
+            $definitions[basename($icon)] = [
+                'provider' => SvgIconProvider::class,
+                'source' => "EXT:$extKey/Resources/Public/Icons/$icon.svg",
+            ];
         }
+        return $definitions;
     }
 }

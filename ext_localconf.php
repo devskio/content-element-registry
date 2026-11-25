@@ -2,31 +2,15 @@
 
 use Devsk\ContentElementRegistry\Core\ContentElementRegistry;
 use Devsk\ContentElementRegistry\Utility\ContentElementRegistryUtility;
-use TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider;
-use TYPO3\CMS\Core\Imaging\IconRegistry;
 use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
-use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 defined('TYPO3') or die();
 
 call_user_func(
     function ($extKey) {
-
-        $iconRegistry = GeneralUtility::makeInstance(
-            IconRegistry::class
-        );
         $contentElementsRegistry = ContentElementRegistry::getInstance();
 
         foreach ($contentElementsRegistry->getContentElements() as $contentElement) {
-            //Register CE icon
-            $iconRegistry->registerIcon(
-                $contentElement->getIconIdentifier(),
-                SvgIconProvider::class,
-                [
-                    'source' => $contentElement->getIconSrcPath(),
-                ]
-            );
-
             //Register CE rendering definition
             ExtensionManagementUtility::addTypoScript(
                 $extKey,

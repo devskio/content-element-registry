@@ -22,7 +22,6 @@ return [
             'starttime' => 'starttime',
             'endtime' => 'endtime',
         ],
-        'searchFields' => 'type,title,description,files',
         'iconfile' => 'EXT:content_element_registry/Resources/Public/Icons/tx_contentelementregistry_domain_model_relation.svg',
         'hideTable' => true,
         'type' => 'type',
@@ -34,7 +33,7 @@ return [
     'types' => [
         '0' => [
             'showitem' => 'type,
-                           --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:language,
+                           --div--;core.form.tabs:language,
                                 sys_language_uid, l10n_parent, l10n_diffsource,
                            --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access, 
                                 hidden, starttime, endtime'
@@ -50,7 +49,7 @@ return [
         ],
         'l10n_parent' => [
             'displayCond' => 'FIELD:sys_language_uid:>:0',
-            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.l18n_parent',
+            'label' => 'core.db.general:l18n_parent',
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
@@ -71,11 +70,12 @@ return [
             ],
         ],
         't3ver_label' => [
-            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.versionLabel',
+            'label' => 'Version label',
             'config' => [
                 'type' => 'input',
                 'size' => 30,
                 'max' => 255,
+                'searchable' => false,
             ],
         ],
         'hidden' => [
@@ -95,13 +95,14 @@ return [
             'behaviour' => [
                 'allowLanguageSynchronization' => true
             ],
-            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.starttime',
+            'label' => 'core.db.general:starttime',
             'config' => [
                 'type' => 'datetime',
                 'size' => 13,
                 'eval' => 'datetime',
                 'format' => 'datetime',
                 'default' => 0,
+                'searchable' => false,
             ],
         ],
         'endtime' => [
@@ -109,7 +110,7 @@ return [
             'behaviour' => [
                 'allowLanguageSynchronization' => true
             ],
-            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.endtime',
+            'label' => 'core.db.general:endtime',
             'config' => [
                 'type' => 'datetime',
                 'size' => 13,
@@ -119,6 +120,7 @@ return [
                 'range' => [
                     'upper' => mktime(0, 0, 0, 1, 1, 2038)
                 ],
+                'searchable' => false,
             ],
         ],
 

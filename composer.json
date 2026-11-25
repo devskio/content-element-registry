@@ -3,9 +3,9 @@
 	"type": "typo3-cms-extension",
 	"description": "Content element registry - helper for registering Typo3 content elements",
 	"license": "GPL-2.0-or-later",
-    "version": "13.0",
+    "version": "14.0.0",
 	"require": {
-		"typo3/cms-core": ">=13.0.0 <13.9.9",
+		"typo3/cms-core": "^14.3",
         "composer/class-map-generator": "^1.0"
 	},
 	"autoload": {

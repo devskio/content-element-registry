@@ -31,13 +31,15 @@ class ContentElementPreviewRenderer
      */
     public function __invoke(PageContentPreviewRenderingEvent $event): void
     {
-        $row = $event->getRecord();
-        $itemContent = $event->getPreviewContent();
+        // TYPO3 14 passes a Record object, the preview templates and the data mapper expect the raw database row
+        $record = $event->getRecord();
+        $row = $record->getRawRecord()->toArray();
+        $itemContent = (string)$event->getPreviewContent();
 
         $contentElementRegistry = ContentElementRegistry::getInstance();
-        if ($contentElementRegistry->existsContentElement($row['CType'])) {
+        if ($contentElementRegistry->existsContentElement($event->getRecordType())) {
             /** @var AbstractContentElementRegistryItem $contentElement */
-            $contentElement = $contentElementRegistry->getContentElement($row['CType']);
+            $contentElement = $contentElementRegistry->getContentElement($event->getRecordType());
             $view = $this->getView(
                 extensionKey: $contentElement->getExtensionKey(),
                 templateFile: "Templates/ContentElements/{$contentElement->getTemplateName()}.html",
