@@ -63,9 +63,7 @@ foreach ($contentElementsRegistry->getContentElements() as $contentElement) {
             icon: $contentElement->getIconIdentifier(),
             group: $contentElement->getGroupName() === 'common' ? 'default' : $contentElement->getGroupName(),
             description: $contentElement->getDescription(),
-        ),
-        'CType',
-        $contentElement->getExtensionKey()
+        )
     );
 }
 

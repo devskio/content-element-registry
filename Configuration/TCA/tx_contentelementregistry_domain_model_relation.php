@@ -35,7 +35,7 @@ return [
             'showitem' => 'type,
                            --div--;core.form.tabs:language,
                                 sys_language_uid, l10n_parent, l10n_diffsource,
-                           --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access, 
+                           --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access,
                                 hidden, starttime, endtime'
         ],
     ],
@@ -85,7 +85,7 @@ return [
                 'type' => 'check',
                 'items' => [
                     [
-                        'label' => 'LLL:EXT:lang/Resources/Private/Language/locallang_core.xlf:labels.enabled'
+                        'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_core.xlf:labels.enabled'
                     ]
                 ],
             ],
